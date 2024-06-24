@@ -23,7 +23,7 @@ Contact Us:
 
 
 
-Dashboard(For Admin User Only):
+Dashboard (For Admin User Only):
 
 ![image](https://github.com/ST10082949/KhumaloCrafts_Part3_St10082949/assets/128743239/206bd9df-3b09-4963-a36c-2d11d779952a)
 
