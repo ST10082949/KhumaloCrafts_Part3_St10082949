@@ -1,0 +1,68 @@
+﻿﻿video {
+    margin-top: 5px;
+    width: 450px;
+    height: 20%;
+}
+
+.display-4 {
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+p {
+    align-content: center;
+    font-family: Arial;
+    font-size: 15px;
+}
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 25px;
+    box-shadow: inherit;
+}
+
+h1 {
+    text-align: center;
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 30px;
+}
+
+.card-img-top {
+    height: 250px;
+}
+
+/* Make all cards in row the same height */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    grid-row-gap: 25px;
+}
+
+
+
+/* Hover effects */
+.card {
+    transition: -webkit-transform 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.01, 1.01);
+    }
+
+.btn {
+    background-color: palegreen;
+    border: none;
+    color: black;
+}
+
+hover.btn {
+    background-color: palegreen;
+}

@@ -1,0 +1,71 @@
+﻿h1 {
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 30px;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+h6 {
+    text-align: center;
+}
+
+h4 {
+    text-align: center;
+}
+
+.checked {
+    color: orange;
+}
+
+.card {
+    width: 400px;
+    height: 200px;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.rating {
+    font-size: 15px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+span {
+    margin-left: 10px;
+}
+
+button {
+    background-color: palegreen;
+}
+
+    button:hover {
+        background-color: blue;
+    }
+
+.media {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+a {
+    display: inline-block;
+    margin: 10px;
+    text-decoration: none;
+    color: currentColor;
+    font-size: 18px;
+}
+
+    a svg {
+        vertical-align: middle;
+    }
+
+    a:hover {
+        color: #007BFF; /* Change color on hover */
+    }

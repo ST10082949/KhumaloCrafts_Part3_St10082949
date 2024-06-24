@@ -1,0 +1,74 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <link href="~/KhumaloCrafts_Part2.styles.css" rel="stylesheet" />
+
+
+    <style>
+       
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top:35%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main-contaier">
+        <div class="sidenav">
+            <a class="navigation-link" href="/Home/Index"><i class="bi bi-house-door"></i> Home</a>
+            <a href="/AdminOperations/AllOrders" class="navigation-link"><i class="bi bi-receipt"></i> Orders</a>
+            <a href="/Stock/Index" class="navigation-link"><i class="bi bi-archive"></i> Stock</a>
+            <a href="/Category/Index" class="navigation-link"><i class="bi bi-collection"></i> Catgeory</a>
+            <a href="/Product/Index" class="navigation-link"><i class="bi bi-box"></i> Products</a>
+            <a href="/Reports/TopFiveSellingProducts" class="navigation-link"><i class="bi bi-bar-chart"></i> Top Selling Items</a>
+           
+        </div>
+        <div class="right-panel">
+            <nav class="nav-bar">
+                <div class="nav-heading">
+                    <i class="bi bi-person-circle"></i> Welcome @User.Identity?.Name
+                </div>
+                <div class="nav-actions">
+                    <a href="/Identity/Account/Manage/Index" class="navigation-link"><i class="bi bi-gear"></i> Manage account</a>
+                    <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" style="display: inline;">
+                        <button type="submit" class="btn btn-link text-white">
+                            <i class="bi bi-box-arrow-left"></i> Logout
+                        </button>
+                    </form>
+                </div>
+            </nav>
+           
+            <div class="content">
+                <div class="card">
+                    @RenderBody()
+                    <p>Welcome to your dashboard! Here you can manage your orders, stock, categories, and products.</p>
+                </div>
+               
+            </div>
+            <div class="footer">
+                &copy; 2024 Khumalo Crafts. All rights reserved.
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</html>

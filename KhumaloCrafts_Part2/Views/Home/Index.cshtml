@@ -1,0 +1,126 @@
+﻿@model ProductDisplayModel
+@{
+
+}
+
+<style>
+
+    h1 {
+        text-align: center;
+        background-color: beige;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 30px;
+    }
+
+    /* Hover effects */
+    .w-100  {
+        transition: -webkit-transform 0.3s ease;
+    }
+
+        .w-100 :hover {
+            transform: scale(1.01, 1.01);
+        }
+</style>
+
+
+<div class="my-2">
+    <h1>Global Craft Products</h1>
+    <br />
+    <form asp-action="Index" class="row row-cols-lg-auto g-3 align-items-center">
+        <div class="col-12">
+            <label class="visually-hidden" for="categoryId">Categories</label>
+            <select class="form-select" id="categoryId" name="categoryId">
+                <option selected>Category</option>
+                @foreach (var category in Model.Categories)
+                {
+                    <option selected="@(category.Id == Model.CategoryId)" value="@category.Id">@category.CategoryName</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-12">
+            <label class="visually-hidden" for="sterm">Search by title</label>
+            <div class="input-group">
+                <div class="input-group-text"></div>
+                <input type="text" class="form-control" value="@Model.STerm" id="sterm" name="sterm" placeholder="Sarch by title">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Search</button>
+            <a href="/Home/Index" class="btn btn-dark">Reset</a>
+        </div>
+    </form>
+</div>
+
+
+<br />
+<p class=" para">
+    Explore our diverse collection of handcrafted products from artisans around the world.
+    From intricate pottery and textiles to stunning jewelry and home decor, each piece tells a story of craftsmanship and tradition.
+    Discover the beauty and artistry of handmade products that are made with care and attention to detail. With a variety of styles, materials, and techniques,
+    our craft showcase offers something for every taste and preference. Support artisans and shop unique, one-of-a-kind creations at KhumaloCraft Emporium.
+</p>
+
+
+<div class="w-100 mt-4 d-flex flex-wrap ">
+    @foreach (var product in Model.Products)
+    {
+        <div class="card mx-3 mb-4" style="width: 11rem;">
+            @if (string.IsNullOrEmpty(product.Image))
+            {
+                <img style="width:100%;height:180px" src="/images/NoImage.png" class="card-img-top" alt="...">
+
+            }
+            else
+            {
+                <img style="width:100%;height:180px" src="/images/@product.Image" class="card-img-top" alt="...">
+            }
+            <div class="card-body">
+                <h5 class="card-title">@product.ProductName</h5>
+                <p class="card-text">
+                    <b>Category: </b>@product.CategoryName <br />
+                    <b>Artisan: </b>@product.ArtisanName <br />
+                    <b>Description: </b>@product.Description <br />
+                    <b>Price: </b>@product.Price
+                    @* <br/> <b>@product.Quantity</b> *@
+                </p>
+                @if (product.Quantity > 0)
+                {
+                    <button type="button" onclick="add(@product.Id)" class="btn btn-primary">Add to cart</button>
+                }
+                else
+                {
+                    <span style="border: 1px solid;padding: 5px 8px;color: red;border-radius: 5px;">Out of stock</span>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts{
+    <script>
+        async function add(productId) {
+             var usernameEl = document.getElementById("username");
+        if(usernameEl==null){
+            window.location.href = "/Identity/Account/Login";
+          //var username=usernameEl.innerText;
+          //  if(username.length<1){
+          //      window.location.href="/Identity/Account/Login";
+          //  }
+        }
+            try {
+                var response = await fetch(`/Cart/AddItem?productId=${productId}`);
+                if (response.status == 200) {
+                    var result = await response.json();
+                    var cartCountEl = document.getElementById("cartCount");
+                    cartCountEl.innerHTML = result;
+                    window.location.href = "#cartCount";
+                }
+            }
+            catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
+}
