@@ -5,6 +5,12 @@
     text-align: center;
 }
 
+.@ViewData {
+    background-color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 30px;
+    text-align: center;
+}
 
 h2 {
     background-color: beige;
